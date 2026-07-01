@@ -52,7 +52,7 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-
+@export var ball_scene: PackedScene
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
@@ -100,7 +100,6 @@ func _physics_process(delta: float) -> void:
 			move_speed = sprint_speed
 	else:
 		move_speed = base_speed
-
 	# Apply desired movement to velocity
 	if can_move:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -115,6 +114,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 	
+	if Input.is_action_just_pressed("throw"):
+		throw_ball()
+
 	# Use velocity to actually move
 	move_and_slide()
 
@@ -175,4 +177,14 @@ func check_input_mappings():
 		can_sprint = false
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
-		can_freefly = false
+		can_freefly = false 
+func throw_ball():
+	print("Throw!")
+
+	var ball = ball_scene.instantiate()
+
+	get_tree().current_scene.add_child(ball)
+
+	ball.global_position = Vector3(0, 5, 0)
+
+	ball.linear_velocity = -head.global_transform.basis.z * 20

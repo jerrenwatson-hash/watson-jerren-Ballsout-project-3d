@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://st6wx7kadu64" path="res://shaderwhite.gdshader" id="2_0xm2m"]
 [ext_resource type="Shader" uid="uid://tidourgyuqj1" path="res://water.gdshader" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,7 +68,7 @@ size = Vector3(1, 1.2, 1.8000001)
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 0.99999976, 0, 0, 0)
 
 [node name="barrier" type="CSGBox3D" parent="Floor/CSGCombiner3D" unique_id=1317096941]
-transform = Transform3D(0.072000004, 0, 0, 0, 0.21600007, 0, 0, 0, 0.39999998, -0.17770302, 0.834669, -1.0123072e-08)
+transform = Transform3D(0.072000004, 0, 0, 0, 0.21600004, 0, 0, 0, 0.39999998, -0.17770302, 0.6929594, -1.0123072e-08)
 size = Vector3(0.8, 1, 1)
 
 [node name="barrier2" type="CSGBox3D" parent="Floor/CSGCombiner3D" unique_id=519226657]
@@ -136,12 +137,13 @@ transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 1.3888888, -0.03030443
 size = Vector3(1, 7, 1)
 
 [node name="ProtoController" parent="." unique_id=1216802643 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.2, 9.900001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.79999995, 10.059288)
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_up"
 input_back = "move_down"
 input_jump = "jump"
+ball_scene = ExtResource("4_1bvp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=640654227]
 transform = Transform3D(3.0492, 0, 0, 0, 4.5980005, 0, 0, 0, 0.32999998, -14.200001, 3.0000002, 26.400002)
