@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://st6wx7kadu64" path="res://shaderwhite.gdshader" id="2_0xm2m"]
 [ext_resource type="Shader" uid="uid://tidourgyuqj1" path="res://water.gdshader" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://Addons/addons/fpc/character.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
@@ -18,12 +19,7 @@ sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
-render_priority = 0
-shader = ExtResource("2_0xm2m")
-shader_parameter/hole_depth = 1.0
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7mycd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 
@@ -47,8 +43,15 @@ render_priority = 0
 shader = ExtResource("3_h2yge")
 shader_parameter/normal_map = SubResource("NoiseTexture2D_lquwl")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/rapid = 0.05
+shader_parameter/rapid = 0.01
 shader_parameter/transparency = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+render_priority = 0
+shader = ExtResource("2_0xm2m")
+shader_parameter/hole_depth = 1.0
 
 [node name="Main" type="Node3D" unique_id=1305736790]
 
@@ -145,12 +148,18 @@ input_back = "move_down"
 input_jump = "jump"
 ball_scene = ExtResource("4_1bvp3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=640654227]
-transform = Transform3D(3.0492, 0, 0, 0, 4.5980005, 0, 0, 0, 0.32999998, -14.200001, 3.0000002, 26.400002)
-mesh = SubResource("BoxMesh_ig7tw")
-surface_material_override/0 = SubResource("ShaderMaterial_h2yge")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ProtoController" unique_id=1087896898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4901161e-08, 0.8000001, 9.536743e-07)
+mesh = SubResource("CapsuleMesh_7mycd")
+
+[node name="Character" parent="ProtoController" unique_id=1098157796 instance=ExtResource("3_lquwl")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=589240014]
-transform = Transform3D(79.45344, 0, 0, 0, 0.43199998, 0, 0, 0, 77.4479, 0.19999999, -1.5, 0)
+transform = Transform3D(79.45344, 0, 0, 0, 0.43199998, 0, 0, 0, 77.4479, 0.19999999, -0.59999996, 0)
 mesh = SubResource("BoxMesh_0xm2m")
 surface_material_override/0 = SubResource("ShaderMaterial_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=640654227]
+transform = Transform3D(3.0492, 0, 0, 0, 4.5980005, 0, 0, 0, 0.32999998, -13.900001, 3.1000004, 26.4)
+mesh = SubResource("BoxMesh_ig7tw")
+surface_material_override/0 = SubResource("ShaderMaterial_h2yge")
