@@ -4,7 +4,8 @@
 # Happy prototyping!
 
 extends CharacterBody3D
-
+@export var throw_force = 20
+@export var ball_scene: PackedScene
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -15,6 +16,7 @@ extends CharacterBody3D
 @export var can_sprint : bool = false
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
+
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -52,7 +54,7 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-@export var ball_scene: PackedScene
+
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
@@ -147,7 +149,7 @@ func disable_freefly():
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
-
+ 
 
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -178,13 +180,14 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false 
+
 func throw_ball():
 	print("Throw!")
 
-	var ball = ball_scene.instantiate()
+	var ball = ball_scene.instantance()
 
 	get_tree().current_scene.add_child(ball)
 
-	ball.global_position = Vector3(0, 5, 0)
+	ball.global_transform.origin = head.global_transform.origin
 
 	ball.linear_velocity = -head.global_transform.basis.z * 20

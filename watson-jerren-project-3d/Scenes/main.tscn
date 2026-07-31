@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://Addons/addons/fpc/character.tscn" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://1dff0v61yptu" path="res://textures/trashcans/textures/damaged_plaster_diff_2k.jpg" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dw2x4wilaq3xl" path="res://Addons/skeleton (1).glb" id="3_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cn0n6vcll48ke" path="res://textures/realistic_hd_canary_island_date_palm_1440.glb" id="4_w48qg"]
 [ext_resource type="Texture2D" uid="uid://tu66270rctq1" path="res://textures/textures/broken_brick_wall_diff_2k.jpg" id="6_vivmo"]
-[ext_resource type="PackedScene" uid="uid://dtbqhij7bau4x" path="res://Addons/Ground054_2K-PNG.blend" id="9_vivmo"]
+[ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dj07o46swc24i" path="res://Addons/props/source/BeachBall1.glb" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://b5mxbsm4lbjik" path="res://Addons/props/coconut.glb" id="11_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cbti0vk7613gk" path="res://Addons/addons/dead_tree_trunk_02_2k.gltf" id="15_yaehf"]
@@ -201,7 +200,6 @@ input_right = "move_right"
 input_forward = "move_up"
 input_back = "move_down"
 input_jump = "jump"
-ball_scene = ExtResource("4_1bvp3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ProtoController" unique_id=1087896898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9000001, 0)

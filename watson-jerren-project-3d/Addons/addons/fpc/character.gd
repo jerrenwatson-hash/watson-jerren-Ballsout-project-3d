@@ -149,9 +149,6 @@ func _ready():
 	HEAD.rotation.y = rotation.y
 	rotation.y = 0
 
-	if default_reticle:
-		change_reticle(default_reticle)
-
 	initialize_animations()
 	check_controls()
 	enter_normal_state()
@@ -460,15 +457,6 @@ func _unhandled_input(event : InputEvent):
 #endregion
 
 #region Misc Functions
-
-func change_reticle(reticle): # Yup, this function is kinda strange
-	if RETICLE:
-		RETICLE.queue_free()
-
-	RETICLE = load(reticle).instantiate()
-	RETICLE.character = self
-	$UserInterface.add_child(RETICLE)
-
 
 func update_camera_fov():
 	if state == "sprinting":
