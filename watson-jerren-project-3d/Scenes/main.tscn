@@ -84,13 +84,18 @@ use_collision = true
 size = Vector3(1, 1.2, 1.8000001)
 material = ExtResource("2_dg77c")
 
+[node name="Circlefloor" type="CSGCylinder3D" parent="Floor" unique_id=1349669921]
+transform = Transform3D(1.6510767, 0, -0.46043485, 0, 1, 0, 0.6009424, 0, 1.2650343, 0.95768815, -0.3034703, -3.038399)
+height = 1.7
+material = ExtResource("2_dg77c")
+
 [node name="Floor2" type="CSGBox3D" parent="Floor" unique_id=181033299]
 transform = Transform3D(0.9757625, 0, 0, 0, 0.4377122, 0, 0, 0, 2.0029697, 1.8038237, 0.41176087, 0.013549179)
 material = ExtResource("2_dg77c")
 
 [node name="Floor3" type="CSGBox3D" parent="Floor" unique_id=1910253151]
-transform = Transform3D(1.3744888, 0, 0, 0, 0.9354581, 0, 0, 0, 1.5971684, -0.6014888, 0.44010276, -1.747845)
-size = Vector3(1.8000001, 1, 1)
+transform = Transform3D(1.3744888, 0, 0, 0, 0.76614034, 0, 0, 0, 1.5971684, -0.6014888, 0.057904452, -1.713971)
+size = Vector3(1.8000001, 0.90000004, 1)
 material = ExtResource("2_dg77c")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Floor" unique_id=844410736]
@@ -135,6 +140,11 @@ transform = Transform3D(-0.090000026, 0, 0, 0, 0.4160001, 0, 0, 0, 0.07999996, 1
 [node name="palmtree2" parent="Floor" unique_id=671546872 instance=ExtResource("4_w48qg")]
 transform = Transform3D(-0.090000026, 0, 0, 0, 0.70720017, 0, 0, 0, 0.07999996, -0.8107685, 0.4534703, 2.635317)
 
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Floor" unique_id=1917222695]
+transform = Transform3D(0.76730096, 0, -1.3639407, 0, 0.5760004, 0, 1.329003, 0, 0.78747094, 1.684114, 0.6097098, 2.865653)
+height = 0.7
+material = ExtResource("2_dg77c")
+
 [node name="wall1" type="CSGCombiner3D" parent="." unique_id=365965127]
 transform = Transform3D(3.6000001, 0, 0, 0, 0.19799998, 0, 0, 0, 3.146, 0, 1.4000001, 0)
 material_override = SubResource("StandardMaterial3D_yaehf")
@@ -153,15 +163,28 @@ transform = Transform3D(0.31359994, 0, 0, 0, 0.8999996, 0, 0, 0, 0.315, 0, 0, 0.
 operation = 2
 
 [node name="block4" type="CSGBox3D" parent="wall1/ceiling" unique_id=482700661]
-transform = Transform3D(0.3571281, 0, 0, 0, 10.669945, 0, 0, 0, 0.14010796, 0.4166665, -24.242447, 0.69800353)
+transform = Transform3D(0.3571281, 0, 0, 0, 10.669945, 0, 0, 0, 0.14010797, 0.41785425, -24.242447, 0.69800377)
+size = Vector3(0.90000004, 1, 1)
 
 [node name="block5" type="CSGBox3D" parent="wall1/ceiling" unique_id=981461211]
-transform = Transform3D(0.3208201, 0, 0, 0, 1.898521, 0, 0, 0, 0.15179794, 0.4166665, -15.694494, 0.61153156)
-size = Vector3(1, 3.5, 0.90000004)
+transform = Transform3D(0.3208201, 0, 0, 0, 1.708669, 0, 0, 0, 0.15179794, 0.4166665, -16.37796, 0.61153173)
+size = Vector3(1, 2.7, 0.90000004)
+
+[node name="block7" type="CSGBox3D" parent="wall1/ceiling" unique_id=1267630508]
+transform = Transform3D(0.1713973, 0, 0, 0, 0.52066094, 0, 0, 0, 0.15117161, 0.23805176, -21.729713, 0.8601309)
+size = Vector3(1, 7, 1)
 
 [node name="block6" type="CSGBox3D" parent="wall1/ceiling" unique_id=530391738]
-transform = Transform3D(0.3208201, 0, 0, 0, 1.8985213, 0, 0, 0, 0.15179794, 0.4166665, -8.598738, 0.5394536)
-size = Vector3(1, 3.5, 0.90000004)
+transform = Transform3D(0.2887381, 0, 0, 0, 1.8985213, 0, 0, 0, 0.15179794, 0.4119056, -12.147308, 0.5586746)
+size = Vector3(1, 2.4, 0.90000004)
+
+[node name="block8" type="CSGBox3D" parent="wall1/ceiling/block6" unique_id=1974442070]
+transform = Transform3D(0.44999996, 0, 0, 0, 0.8099999, 0, 0, 0, 0.7560001, 0.24733675, 2.2158642, 0)
+size = Vector3(1, 2.5, 1)
+
+[node name="block9" type="CSGBox3D" parent="wall1/ceiling/block6" unique_id=359165137]
+transform = Transform3D(0.44999996, 0, 0, 0, 0.8099999, 0, 0, 0, 0.7560001, 0.33733678, 4.1945496, 0)
+size = Vector3(0.6, 2.5, 1)
 
 [node name="block3" type="CSGBox3D" parent="wall1/ceiling" unique_id=1690050568]
 transform = Transform3D(-1.430925e-08, 1.0340486, 0.09845848, -0.3779998, -3.5159122e-08, -1.5931079e-08, -8.261443e-09, -0.18233092, 0.5583863, -0.3459859, -15.268169, -0.7164822)
@@ -188,10 +211,6 @@ radius = 0.3
 [node name="stump4" type="CSGCylinder3D" parent="wall1" unique_id=1306248641]
 transform = Transform3D(0.31280002, 0, 0, 0, 3.8764565, 0, 0, 0, 0.24564523, -0.53333324, -4.0404034, 0.508582)
 radius = 0.3
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="wall1" unique_id=1267630508]
-transform = Transform3D(1, 0, 0, 0, 0.62999916, 0, 0, 0, 1, 1.3888888, -0.030304432, 5.689765)
-size = Vector3(1, 7, 1)
 
 [node name="ProtoController" parent="." unique_id=1216802643 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.79999995, 10.059288)
@@ -227,7 +246,7 @@ transform = Transform3D(0.19999999, 0, 0, 0, 0.17999998, 0, 0, 0, 0.19999999, 8.
 transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1.5, 8.900002, -2.9802322e-08, -0.29999995)
 
 [node name="Bridge1" type="CSGBox3D" parent="." unique_id=728547433]
-transform = Transform3D(32.604, 0, 0, 0, 1.287, 0, 0, 0, 7.4100003, 37.4, 0, 0)
+transform = Transform3D(35.864403, 0, 0, 0, 1.287, 0, 0, 0, 7.4100003, 37.4, 0, 0)
 material = ExtResource("2_dg77c")
 
 [node name="Bridge2" type="CSGBox3D" parent="." unique_id=830273761]
@@ -241,7 +260,7 @@ size = Vector3(1, 1.1, 0.8)
 material = ExtResource("2_dg77c")
 
 [node name="Bridge5" type="CSGBox3D" parent="." unique_id=995193903]
-transform = Transform3D(-3.2626114, 0, -49.653652, 0, 0.6864, 0, 8.963952, 0, -18.072449, -33.499996, -0.021449864, -5.344146)
+transform = Transform3D(-3.3741992, 0, -54.31957, 0, 0.6864, 0, 9.270537, 0, -19.770702, -34.999996, -0.021449864, -5.0441456)
 size = Vector3(1, 1.1, 0.8)
 material = ExtResource("2_dg77c")
 
@@ -256,8 +275,8 @@ size = Vector3(90.700005, 1, 44.4)
 material = ExtResource("2_dg77c")
 
 [node name="Floor5" type="CSGBox3D" parent="." unique_id=938342039]
-transform = Transform3D(0.48000002, 0, 0, 0, 1.694, 0, 0, 0, 0.81647986, -74.700005, 0.6692925, -2.1000051)
-size = Vector3(90.700005, 1.1, 44.4)
+transform = Transform3D(0.48000002, 0, 0, 0, 1.3721399, 0, 0, 0, 0.81647986, -74.700005, -0.13652849, -2.1000051)
+size = Vector3(90.700005, 0.8, 44.4)
 material = ExtResource("2_dg77c")
 
 [node name="Floor6" type="CSGBox3D" parent="." unique_id=1164958211]

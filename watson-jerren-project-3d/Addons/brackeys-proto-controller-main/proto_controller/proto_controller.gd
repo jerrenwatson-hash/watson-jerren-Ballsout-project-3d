@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 	
-	if Input.is_action_just_pressed("throw"):
+	if Input.is_action_just_pressed("throw_ball"):
 		throw_ball()
 
 	# Use velocity to actually move
@@ -184,10 +184,10 @@ func check_input_mappings():
 func throw_ball():
 	print("Throw!")
 
-	var ball = ball_scene.instantance()
+	var ball = ball_scene.instantiate()
 
-	get_tree().current_scene.add_child(ball)
+	get_tree().get_current_scene().add_child(ball)
 
-	ball.global_transform.origin = head.global_transform.origin
+	ball.global_transform.origin = head.global_transform.origin+(-head.global_transform.basis.z*1.5)
 
 	ball.linear_velocity = -head.global_transform.basis.z * 20
