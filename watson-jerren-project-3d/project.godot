@@ -24,6 +24,7 @@ folder_colors={
 "res://Scripts/": "green",
 "res://asetsbrackeys3D/": "orange",
 "res://asetsbrackeys3D/brackeys_3d_game_assets/": "orange",
+"res://characterbody/": "gray",
 "res://textures/": "teal"
 }
 

@@ -2,27 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d3srs48xpl6an" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="2_kescs"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
-radius = 0.4
-height = 1.8
+[ext_resource type="PackedScene" uid="uid://7ir8e8jt7pyt" path="res://characterbody/character.fbx" id="3_hniue"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
+radius = 0.2
 height = 1.8
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1889622910]
 script = ExtResource("1_ucva2")
 ball_scene = ExtResource("2_kescs")
-
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=334656954]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1501048362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -32,3 +20,8 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=161377949]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1540214292]
+
+[node name="character" parent="Node3D" unique_id=1593386078 instance=ExtResource("3_hniue")]
+transform = Transform3D(0.39599997, 0, 0, 0, 0.486, 0, 0, 0, 0.5831999, 0, 0, 0)
