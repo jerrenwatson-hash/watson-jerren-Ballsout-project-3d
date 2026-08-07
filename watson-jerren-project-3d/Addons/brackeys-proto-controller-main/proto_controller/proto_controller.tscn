@@ -13,7 +13,7 @@ script = ExtResource("1_ucva2")
 ball_scene = ExtResource("2_kescs")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1501048362]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(0.77, 0, 0, 0, 0.77, 0, 0, 0, 0.77, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="." unique_id=255044719]
@@ -21,7 +21,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=161377949]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1540214292]
+[node name="Node3D" type="Node3D" parent="Head" unique_id=1540214292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
 
-[node name="character" parent="Node3D" unique_id=1593386078 instance=ExtResource("3_hniue")]
-transform = Transform3D(0.39599997, 0, 0, 0, 0.486, 0, 0, 0, 0.5831999, 0, 0, 0)
+[node name="character" parent="Head/Node3D" unique_id=1593386078 instance=ExtResource("3_hniue")]
+transform = Transform3D(0.431244, 0, 0, 0, 0.5196312, 0, 0, 0, 0.6235574, 0, 0, 0)

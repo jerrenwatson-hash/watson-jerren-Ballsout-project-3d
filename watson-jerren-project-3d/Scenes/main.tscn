@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dw2x4wilaq3xl" path="res://Addons/skeleton (1).glb" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cn0n6vcll48ke" path="res://textures/realistic_hd_canary_island_date_palm_1440.glb" id="4_w48qg"]
 [ext_resource type="Texture2D" uid="uid://tu66270rctq1" path="res://textures/textures/broken_brick_wall_diff_2k.jpg" id="6_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cqm74k5qmixlh" path="res://characterbody/Offensive Idle.fbx" id="9_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://diaxgufxm3afk" path="res://Scenes/ball.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dj07o46swc24i" path="res://Addons/props/source/BeachBall1.glb" id="10_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://b5mxbsm4lbjik" path="res://Addons/props/coconut.glb" id="11_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cbti0vk7613gk" path="res://Addons/addons/dead_tree_trunk_02_2k.gltf" id="15_yaehf"]
 [ext_resource type="PackedScene" uid="uid://ce0p6pgchwskj" path="res://Addons/addons/boulder_01_2k.gltf" id="16_074og"]
 
@@ -65,7 +65,9 @@ albedo_texture = ExtResource("6_vivmo")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaehf"]
 albedo_texture = ExtResource("6_vivmo")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7mycd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsu2k"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k12tt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 
@@ -256,18 +258,26 @@ transform = Transform3D(0.31280002, 0, 0, 0, 3.8764565, 0, 0, 0, 0.24564523, -0.
 radius = 0.3
 
 [node name="ProtoController" parent="." unique_id=1216802643 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.79999995, 10.059288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999999, 0.69999987, 10.059287)
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_up"
 input_back = "move_down"
 input_jump = "jump"
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="ProtoController" unique_id=1087896898]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9000001, 0)
-mesh = SubResource("CapsuleMesh_7mycd")
-
 [node name="Character" parent="ProtoController" unique_id=1123276381 instance=ExtResource("3_lquwl")]
+transform = Transform3D(-3.9340257e-08, 0, -0.6, 0, 0.8, 0, 0.9, 0, -2.6226841e-08, 0, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProtoController/Character" unique_id=146272999]
+libraries/ = SubResource("AnimationLibrary_wsu2k")
+
+[node name="Offensive Idle" parent="ProtoController/Character/AnimationPlayer" unique_id=849454237 instance=ExtResource("9_jkdf5")]
+
+[node name="AnimationTree" type="AnimationTree" parent="ProtoController/Character" unique_id=1351766594]
+tree_root = SubResource("AnimationNodeStateMachine_k12tt")
+advance_expression_base_node = NodePath("../AnimationPlayer")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="water" type="MeshInstance3D" parent="." unique_id=589240014]
 transform = Transform3D(194.66092, 0, 0, 0, 0.38102397, 0, 0, 0, 227.69682, 0.19999999, -0.59999996, 0)
@@ -284,9 +294,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 1.4, -4.5)
 
 [node name="BeachBall1" parent="." unique_id=1746093262 instance=ExtResource("10_2cqfq")]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.17999998, 0, 0, 0, 0.19999999, 8.7, 1.5000002, 18.400002)
-
-[node name="Sketchfab_Scene" parent="." unique_id=931773500 instance=ExtResource("11_yaehf")]
-transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1.5, 8.900002, -2.9802322e-08, -0.29999995)
 
 [node name="Bridge1" type="CSGBox3D" parent="." unique_id=728547433]
 transform = Transform3D(35.864403, 0, 0, 0, 1.287, 0, 0, 0, 7.4100003, 37.4, 0, 0)
